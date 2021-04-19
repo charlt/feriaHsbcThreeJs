@@ -31,7 +31,7 @@
          if (data.statusCode == 200) {
              let schedule = data.schedule;
              let arraySchedule = [];
-             let fechaActual = new Date('2021-04-24T05:00:00.000Z');
+             let fechaActual = new Date();
              let diaActual = fechaActual.getDate();
              let mesActual = fechaActual.getMonth();
              for (const iterator of schedule) {
@@ -205,7 +205,7 @@
          //let fechaActual = new Date();
          //QUITAR
          let tituloDia = "";
-         let fechaActual = new Date('2021-04-24T05:00:00.000Z');
+         let fechaActual = new Date();
          let diaActual = fechaActual.getDate();
          let mesActual = fechaActual.getMonth();
          if (data.statusCode == 200) {

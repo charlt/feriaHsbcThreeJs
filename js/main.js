@@ -50,6 +50,13 @@ setInterval(() => {
     }
 }, 240000);
 
+
+setTimeout(() => {
+    if (isTouchscreenDevice()) {
+        alertify.alert('Aviso', 'Para una mejor experiencia, gira tu dispositivo en horizontal.', function() { alertify.success('Disfruta tu experiencía.'); });
+    }
+}, 5000);
+
 $("#musica").click(function() {
     if (pause_music) {
         if (hitSound) {
