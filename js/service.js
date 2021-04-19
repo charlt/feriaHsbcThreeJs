@@ -1,56 +1,56 @@
 //  let url = 'http://173.231.203.133:4000/';
- let url = 'https://api.feriaswbhsbc.com/';
+let url = 'https://api.feriaswbhsbc.com/';
 //  let url = 'http://localhost:4000/';
- let _APP = null;
+let _APP = null;
 
- $(document).ready(function() {
-     $(".mostrar").on("click", function() {
-         $('.cajacoments').show(); //muestro mediante clase
-     });
-     $(".ocultar").on("click", function() {
-         $('.cajacoments').hide(); //muestro mediante clase
-     });
- });
+$(document).ready(function() {
+    $(".mostrar").on("click", function() {
+        $('.cajacoments').show(); //muestro mediante clase
+    });
+    $(".ocultar").on("click", function() {
+        $('.cajacoments').hide(); //muestro mediante clase
+    });
+});
 
- function registro() {
-     $("#login").hide();
-     $("#registro").fadeIn('slow');
- }
+function registro() {
+    $("#login").hide();
+    $("#registro").fadeIn('slow');
+}
 
- function loginDiv() {
-     $('#registroForm')[0].reset();
-     $("#registro").hide();
-     $("#login").fadeIn('slow');
- }
+function loginDiv() {
+    $('#registroForm')[0].reset();
+    $("#registro").hide();
+    $("#login").fadeIn('slow');
+}
 
- function agendaAnterior(type) {
-     $.get(url + `schedule/${type}`, function(data) {
-         let pintar = "";
-         let anteriores = ""
-         let tituloDia = ""
-         if (data.statusCode == 200) {
-             let schedule = data.schedule;
-             let arraySchedule = [];
-             let fechaActual = new Date();
-             let diaActual = fechaActual.getDate();
-             let mesActual = fechaActual.getMonth();
-             guardarEstadistica({typeSchedule: type,type: 'entrarAgendaAnterior',});
-             console.log(schedule);
-             for (const iterator of schedule) {
-                 let fechaAgenda = new Date(iterator.fecha[0]);
-                 let mesAgenda = fechaAgenda.getMonth();
-                 let diaAgenda = fechaAgenda.getDate();
-                 let diaAgendaWeek = fechaAgenda.getDay();
-                 if (fechaAgenda < fechaActual) {
-                     tituloDia = `<h1>${getDayTexto(diaAgendaWeek)+' '+diaAgenda}</h1><br>`
-                     for (const agendad of iterator.res) {
-                         if (agendad.status == "true") {
-                             let fechaInicio = new Date(agendad.start);
-                             let fechaFinal = new Date(agendad.finish);
-                             //<a href="${agendad.video}" target="_blank">
+function agendaAnterior(type) {
+    $.get(url + `schedule/${type}`, function(data) {
+        let pintar = "";
+        let anteriores = ""
+        let tituloDia = ""
+        if (data.statusCode == 200) {
+            let schedule = data.schedule;
+            let arraySchedule = [];
+            let fechaActual = new Date();
+            let diaActual = fechaActual.getDate();
+            let mesActual = fechaActual.getMonth();
+            guardarEstadistica({ typeSchedule: type, type: 'entrarAgendaAnterior', });
+            console.log(schedule);
+            for (const iterator of schedule) {
+                let fechaAgenda = new Date(iterator.fecha[0]);
+                let mesAgenda = fechaAgenda.getMonth();
+                let diaAgenda = fechaAgenda.getDate();
+                let diaAgendaWeek = fechaAgenda.getDay();
+                if (fechaAgenda < fechaActual) {
+                    tituloDia = `<h1>${getDayTexto(diaAgendaWeek)+' '+diaAgenda}</h1><br>`
+                    for (const agendad of iterator.res) {
+                        if (agendad.status == "true") {
+                            let fechaInicio = new Date(agendad.start);
+                            let fechaFinal = new Date(agendad.finish);
+                            //<a href="${agendad.video}" target="_blank">
 
-                             if (type == 'DesarrolloCarrera') {
-                                 pintar += `<div class="col-sm-3 col-xs-12">
+                            if (type == 'DesarrolloCarrera') {
+                                pintar += `<div class="col-sm-3 col-xs-12">
                                <div class="cajainfo bg-desarrollo">
                                    <div class="coso1">
                                        <img src="img/coso1.svg" width="30">
@@ -65,9 +65,9 @@
        
                                </div>
                            </div>`
-                             }
-                             if (type == 'Finanzas') {
-                                 pintar += `<div class="col-sm-3 col-xs-12">
+                            }
+                            if (type == 'Finanzas') {
+                                pintar += `<div class="col-sm-3 col-xs-12">
                                <div class="cajainfo bg-finanzas">
                                    <div class="coso1">
                                        <img src="img/coso1.svg" width="30">
@@ -82,9 +82,9 @@
        
                                </div>
                            </div>`
-                             }
-                             if (type == 'Cultura') {
-                                 pintar += `<div class="col-sm-3 col-xs-12">
+                            }
+                            if (type == 'Cultura') {
+                                pintar += `<div class="col-sm-3 col-xs-12">
                                <div class="cajainfo bg-cultura">
                                    <div class="coso1">
                                        <img src="img/coso1.svg" width="30">
@@ -99,9 +99,9 @@
        
                                </div>
                            </div>`
-                             }
-                             if (type == 'SaludBienestar') {
-                                 pintar += `<div class="col-sm-3 col-xs-12">
+                            }
+                            if (type == 'SaludBienestar') {
+                                pintar += `<div class="col-sm-3 col-xs-12">
                                <div class="cajainfo bg-salud">
                                    <div class="coso1">
                                        <img src="img/coso1.svg" width="30">
@@ -116,9 +116,9 @@
        
                                </div>
                            </div>`
-                             }
-                             if (type == 'Balance') {
-                                 pintar += `<div class="col-sm-3 col-xs-12">
+                            }
+                            if (type == 'Balance') {
+                                pintar += `<div class="col-sm-3 col-xs-12">
                                <div class="cajainfo bg-balance">
                                    <div class="coso1">
                                        <img src="img/coso1.svg" width="30">
@@ -133,103 +133,103 @@
        
                                </div>
                            </div>`
-                             }
+                            }
 
 
 
-                         }
-                     }
-                 } else {
+                        }
+                    }
+                } else {
 
-                 }
-             }
+                }
+            }
 
-             if (type == "DesarrolloCarrera") {
-                 //titutext
-                 $("#titutext").html('<h2 class="color-desarrollo">CALENDARIO | DESARROLLO Y CARRERA</h2>')
-                 $("#iconoAgendaEspecifica").html('<img src="img/desarrollo-de-carrera.png" width="200px">')
-                 $("#marco").removeClass();
-                 $("#marco").addClass("marco-desarrollo");
-                 $('#tituloDia').html('<h1 class="color-desarrollo">' + tituloDia + '</h1>')
-                 $('#contenidoAgenda').html(pintar)
-             }
-             if (type == "Balance") {
-                 //titutext
-                 $("#titutext").html('<h2 class="color-balance">CALENDARIO | BALANCE ENTRE TRABAJO Y TIEMPO LIBRE</h2>')
-                 $("#iconoAgendaEspecifica").html('<img src="img/balance.png" width="200px">')
-                 $("#marco").removeClass();
-                 $("#marco").addClass("marco-balance");
-                 $('#tituloDia').html('<h1 class="color-balance">' + tituloDia + '</h1>')
-                 $('#contenidoAgenda').html(pintar)
-             }
-             if (type == "Finanzas") {
-                 //titutext
-                 $("#titutext").html('<h2 class="color-finanzas">CALENDARIO | FINANZAS</h2>')
-                 $("#iconoAgendaEspecifica").html('<img src="img/finanzas.png" width="200px">')
-                 $("#marco").removeClass();
-                 $("#marco").addClass("marco-finanzas");
-                 $('#tituloDia').html('<h1 class="color-finanzas">' + tituloDia + '</h1>')
-                 $('#contenidoAgenda').html(pintar)
-             }
-             if (type == "Cultura") {
-                 //titutext
-                 $("#titutext").html('<h2 class="color-cultura">CALENDARIO | CULTURA Y VALORES</h2>')
-                 $("#iconoAgendaEspecifica").html('<img src="img/cultura-y-valores.png" width="200px">')
-                 $("#marco").removeClass();
-                 $("#marco").addClass("marco-cultura");
-                 $('#tituloDia').html('<h1 class="color-cultura">' + tituloDia + '</h1>')
-                 $('#contenidoAgenda').html(pintar)
-             }
-             if (type == "SaludBienestar") {
-                 //titutext
-                 $("#titutext").html('<h2 class="color-salud">CALENDARIO | SALUD Y BIENESTAR</h2>')
-                 $("#iconoAgendaEspecifica").html('<img src="img/salud-y-bienestar.png" width="200px">')
-                 $("#marco").removeClass();
-                 $("#marco").addClass("marco-salud");
-                 $('#tituloDia').html('<h1 class="color-salud">' + tituloDia + '</h1>')
-                 $('#contenidoAgenda').html(pintar)
-             }
+            if (type == "DesarrolloCarrera") {
+                //titutext
+                $("#titutext").html('<h2 class="color-desarrollo">CALENDARIO | DESARROLLO Y CARRERA</h2>')
+                $("#iconoAgendaEspecifica").html('<img src="img/desarrollo-de-carrera.png" width="200px">')
+                $("#marco").removeClass();
+                $("#marco").addClass("marco-desarrollo");
+                $('#tituloDia').html('<h1 class="color-desarrollo">' + tituloDia + '</h1>')
+                $('#contenidoAgenda').html(pintar)
+            }
+            if (type == "Balance") {
+                //titutext
+                $("#titutext").html('<h2 class="color-balance">CALENDARIO | BALANCE ENTRE TRABAJO Y TIEMPO LIBRE</h2>')
+                $("#iconoAgendaEspecifica").html('<img src="img/balance.png" width="200px">')
+                $("#marco").removeClass();
+                $("#marco").addClass("marco-balance");
+                $('#tituloDia').html('<h1 class="color-balance">' + tituloDia + '</h1>')
+                $('#contenidoAgenda').html(pintar)
+            }
+            if (type == "Finanzas") {
+                //titutext
+                $("#titutext").html('<h2 class="color-finanzas">CALENDARIO | FINANZAS</h2>')
+                $("#iconoAgendaEspecifica").html('<img src="img/finanzas.png" width="200px">')
+                $("#marco").removeClass();
+                $("#marco").addClass("marco-finanzas");
+                $('#tituloDia').html('<h1 class="color-finanzas">' + tituloDia + '</h1>')
+                $('#contenidoAgenda').html(pintar)
+            }
+            if (type == "Cultura") {
+                //titutext
+                $("#titutext").html('<h2 class="color-cultura">CALENDARIO | CULTURA Y VALORES</h2>')
+                $("#iconoAgendaEspecifica").html('<img src="img/cultura-y-valores.png" width="200px">')
+                $("#marco").removeClass();
+                $("#marco").addClass("marco-cultura");
+                $('#tituloDia').html('<h1 class="color-cultura">' + tituloDia + '</h1>')
+                $('#contenidoAgenda').html(pintar)
+            }
+            if (type == "SaludBienestar") {
+                //titutext
+                $("#titutext").html('<h2 class="color-salud">CALENDARIO | SALUD Y BIENESTAR</h2>')
+                $("#iconoAgendaEspecifica").html('<img src="img/salud-y-bienestar.png" width="200px">')
+                $("#marco").removeClass();
+                $("#marco").addClass("marco-salud");
+                $('#tituloDia').html('<h1 class="color-salud">' + tituloDia + '</h1>')
+                $('#contenidoAgenda').html(pintar)
+            }
 
-             $("#agenda").hide();
-             $("canvas").hide();
-             $("#agendaEspecifica").show();
-         } else {
-             alertify.error(data.message);
-         }
-     });
- }
+            $("#agenda").hide();
+            $("canvas").hide();
+            $("#agendaEspecifica").show();
+        } else {
+            alertify.error(data.message);
+        }
+    });
+}
 
- function agenda(type) {
-     $.get(url + `schedule/${type}`, function(data) {
-         let pintar = "";
-         let anteriores = ""
-         let fechas = [];
-         //let fechaActual = new Date();
-         //QUITAR
-         let tituloDia = "";
-         let fechaActual = new Date();
-         let diaActual = fechaActual.getDate();
-         let mesActual = fechaActual.getMonth();
-         if (data.statusCode == 200) {
-             let schedule = data.schedule;
-             guardarEstadistica({typeSchedule: type,type: 'entrarAgenda',});
+function agenda(type) {
+    $.get(url + `schedule/${type}`, function(data) {
+        let pintar = "";
+        let anteriores = ""
+        let fechas = [];
+        //let fechaActual = new Date();
+        //QUITAR
+        let tituloDia = "";
+        let fechaActual = new Date();
+        let diaActual = fechaActual.getDate();
+        let mesActual = fechaActual.getMonth();
+        if (data.statusCode == 200) {
+            let schedule = data.schedule;
+            guardarEstadistica({ typeSchedule: type, type: 'entrarAgenda', });
 
-             for (const iterator of schedule) {
-                 let fechaAgenda = new Date(iterator.fecha[0]);
-                 fechas.push(fechaAgenda);
-                 let mesAgenda = fechaAgenda.getMonth();
-                 let diaAgenda = fechaAgenda.getDate();
-                 let diaAgendaWeek = fechaAgenda.getDay();
-                 if (diaActual == diaAgenda && mesActual == mesAgenda) {
+            for (const iterator of schedule) {
+                let fechaAgenda = new Date(iterator.fecha[0]);
+                fechas.push(fechaAgenda);
+                let mesAgenda = fechaAgenda.getMonth();
+                let diaAgenda = fechaAgenda.getDate();
+                let diaAgendaWeek = fechaAgenda.getDay();
+                if (diaActual == diaAgenda && mesActual == mesAgenda) {
 
-                     tituloDia = `<h1>${getDayTexto(diaAgendaWeek)+' '+diaAgenda}</h1><br>`;
-                     for (const agendad of iterator.res) {
-                         if (agendad.status == "true") {
-                             let fechaInicio = new Date(agendad.start);
-                             let fechaFinal = new Date(agendad.finish);
-                             
-                             if (type == 'DesarrolloCarrera') {
-                                 pintar += `<div class="col-sm-3 col-xs-12">
+                    tituloDia = `<h1>${getDayTexto(diaAgendaWeek)+' '+diaAgenda}</h1><br>`;
+                    for (const agendad of iterator.res) {
+                        if (agendad.status == "true") {
+                            let fechaInicio = new Date(agendad.start);
+                            let fechaFinal = new Date(agendad.finish);
+
+                            if (type == 'DesarrolloCarrera') {
+                                pintar += `<div class="col-sm-3 col-xs-12">
                                 <div class="cajainfo bg-desarrollo">
                                     <div class="coso1">
                                         <img src="img/coso1.svg" width="30">
@@ -244,9 +244,9 @@
         
                                 </div>
                             </div>`
-                             }
-                             if (type == 'Finanzas') {
-                                 pintar += `<div class="col-sm-3 col-xs-12">
+                            }
+                            if (type == 'Finanzas') {
+                                pintar += `<div class="col-sm-3 col-xs-12">
                                 <div class="cajainfo bg-finanzas">
                                     <div class="coso1">
                                         <img src="img/coso1.svg" width="30">
@@ -261,9 +261,9 @@
         
                                 </div>
                             </div>`
-                             }
-                             if (type == 'Cultura') {
-                                 pintar += `<div class="col-sm-3 col-xs-12">
+                            }
+                            if (type == 'Cultura') {
+                                pintar += `<div class="col-sm-3 col-xs-12">
                                 <div class="cajainfo bg-cultura">
                                     <div class="coso1">
                                         <img src="img/coso1.svg" width="30">
@@ -278,9 +278,9 @@
         
                                 </div>
                             </div>`
-                             }
-                             if (type == 'SaludBienestar') {
-                                 pintar += `<div class="col-sm-3 col-xs-12">
+                            }
+                            if (type == 'SaludBienestar') {
+                                pintar += `<div class="col-sm-3 col-xs-12">
                                 <div class="cajainfo bg-salud">
                                     <div class="coso1">
                                         <img src="img/coso1.svg" width="30">
@@ -295,9 +295,9 @@
         
                                 </div>
                             </div>`
-                             }
-                             if (type == 'Balance') {
-                                 pintar += `<div class="col-sm-3 col-xs-12">
+                            }
+                            if (type == 'Balance') {
+                                pintar += `<div class="col-sm-3 col-xs-12">
                                 <div class="cajainfo bg-balance">
                                     <div class="coso1">
                                         <img src="img/coso1.svg" width="30">
@@ -312,165 +312,166 @@
         
                                 </div>
                             </div>`
-                             }
+                            }
 
-                         }
-                     }
-                 }
-             }
-             fechas.sort();
-             if (pintar == "") {
+                        }
+                    }
+                }
+            }
+            fechas.sort();
+            if (pintar == "") {
 
 
-                 if (fechas[0] > fechaActual) {
-                     let d = fechas[0].getDate();
-                     let w = fechas[0].getDay();
-                     pintar = `El día de hoy no hay agenda abierta, hasta 
+                if (fechas[0] > fechaActual) {
+                    let d = fechas[0].getDate();
+                    let w = fechas[0].getDay();
+                    pintar = `El día de hoy no hay agenda abierta, hasta 
                      ${getDayTexto(w)+' '+d}<br>`
-                 } else if (pintar == "" && fechas[1] > fechaActual) {
-                     let d = fechas[1].getDate();
-                     let w = fechas[1].getDay();
-                     pintar = `El día de hoy no hay agenda abierta, hasta 
+                } else if (pintar == "" && fechas[1] > fechaActual) {
+                    let d = fechas[1].getDate();
+                    let w = fechas[1].getDay();
+                    pintar = `El día de hoy no hay agenda abierta, hasta 
                     ${getDayTexto(w)+' '+d}<br>`
-                 }
+                }
 
-             }
-             /**
-              * DesarrolloCarrera
+            }
+            /**
+             * DesarrolloCarrera
 
-             Finanzas
+            Finanzas
 
-             Cultura
+            Cultura
 
-             SaludBienestar
+            SaludBienestar
 
-             Balance
-              */
-             if (type == "DesarrolloCarrera") {
-                 //titutext
-                 $("#titutext").html('<h2 class="color-desarrollo">CALENDARIO | DESARROLLO Y CARRERA</h2>')
-                 $("#iconoAgendaEspecifica").html('<img src="img/desarrollo-de-carrera.png" width="200px">')
-                 $("#marco").removeClass();
-                 $("#marco").addClass("marco-desarrollo");
-                 $('#tituloDia').html('<h1 class="color-desarrollo">' + tituloDia + '</h1>')
-                 $('#contenidoAgenda').html(pintar)
-             }
-             if (type == "Balance") {
-                 //titutext
-                 $("#titutext").html('<h2 class="color-balance">CALENDARIO | BALANCE ENTRE TRABAJO Y TIEMPO LIBRE</h2>')
-                 $("#iconoAgendaEspecifica").html('<img src="img/balance.png" width="200px">')
-                 $("#marco").removeClass();
-                 $("#marco").addClass("marco-balance");
-                 $('#tituloDia').html('<h1 class="color-balance">' + tituloDia + '</h1>')
-                 $('#contenidoAgenda').html(pintar)
-             }
-             if (type == "Finanzas") {
-                 //titutext
-                 $("#titutext").html('<h2 class="color-finanzas">CALENDARIO | FINANZAS</h2>')
-                 $("#iconoAgendaEspecifica").html('<img src="img/finanzas.png" width="200px">')
-                 $("#marco").removeClass();
-                 $("#marco").addClass("marco-finanzas");
-                 $('#tituloDia').html('<h1 class="color-finanzas">' + tituloDia + '</h1>')
-                 $('#contenidoAgenda').html(pintar)
-             }
-             if (type == "Cultura") {
-                 //titutext
-                 $("#titutext").html('<h2 class="color-cultura">CALENDARIO | CULTURA Y VALORES</h2>')
-                 $("#iconoAgendaEspecifica").html('<img src="img/cultura-y-valores.png" width="200px">')
-                 $("#marco").removeClass();
-                 $("#marco").addClass("marco-cultura");
-                 $('#tituloDia').html('<h1 class="color-cultura">' + tituloDia + '</h1>')
-                 $('#contenidoAgenda').html(pintar)
-             }
-             if (type == "SaludBienestar") {
-                 //titutext
-                 $("#titutext").html('<h2 class="color-salud">CALENDARIO | SALUD Y BIENESTAR</h2>')
-                 $("#iconoAgendaEspecifica").html('<img src="img/salud-y-bienestar.png" width="200px">')
-                 $("#marco").removeClass();
-                 $("#marco").addClass("marco-salud");
-                 $('#tituloDia').html('<h1 class="color-salud">' + tituloDia + '</h1>')
-                 $('#contenidoAgenda').html(pintar)
-             }
-             $("#agenda").hide();
-             $("canvas").hide();
-             $("#agendaEspecifica").show();
+            Balance
+             */
+            if (type == "DesarrolloCarrera") {
+                //titutext
+                $("#titutext").html('<h2 class="color-desarrollo">CALENDARIO | DESARROLLO Y CARRERA</h2>')
+                $("#iconoAgendaEspecifica").html('<img src="img/desarrollo-de-carrera.png" width="200px">')
+                $("#marco").removeClass();
+                $("#marco").addClass("marco-desarrollo");
+                $('#tituloDia').html('<h1 class="color-desarrollo">' + tituloDia + '</h1>')
+                $('#contenidoAgenda').html(pintar)
+            }
+            if (type == "Balance") {
+                //titutext
+                $("#titutext").html('<h2 class="color-balance">CALENDARIO | BALANCE ENTRE TRABAJO Y TIEMPO LIBRE</h2>')
+                $("#iconoAgendaEspecifica").html('<img src="img/balance.png" width="200px">')
+                $("#marco").removeClass();
+                $("#marco").addClass("marco-balance");
+                $('#tituloDia').html('<h1 class="color-balance">' + tituloDia + '</h1>')
+                $('#contenidoAgenda').html(pintar)
+            }
+            if (type == "Finanzas") {
+                //titutext
+                $("#titutext").html('<h2 class="color-finanzas">CALENDARIO | FINANZAS</h2>')
+                $("#iconoAgendaEspecifica").html('<img src="img/finanzas.png" width="200px">')
+                $("#marco").removeClass();
+                $("#marco").addClass("marco-finanzas");
+                $('#tituloDia').html('<h1 class="color-finanzas">' + tituloDia + '</h1>')
+                $('#contenidoAgenda').html(pintar)
+            }
+            if (type == "Cultura") {
+                //titutext
+                $("#titutext").html('<h2 class="color-cultura">CALENDARIO | CULTURA Y VALORES</h2>')
+                $("#iconoAgendaEspecifica").html('<img src="img/cultura-y-valores.png" width="200px">')
+                $("#marco").removeClass();
+                $("#marco").addClass("marco-cultura");
+                $('#tituloDia').html('<h1 class="color-cultura">' + tituloDia + '</h1>')
+                $('#contenidoAgenda').html(pintar)
+            }
+            if (type == "SaludBienestar") {
+                //titutext
+                $("#titutext").html('<h2 class="color-salud">CALENDARIO | SALUD Y BIENESTAR</h2>')
+                $("#iconoAgendaEspecifica").html('<img src="img/salud-y-bienestar.png" width="200px">')
+                $("#marco").removeClass();
+                $("#marco").addClass("marco-salud");
+                $('#tituloDia').html('<h1 class="color-salud">' + tituloDia + '</h1>')
+                $('#contenidoAgenda').html(pintar)
+            }
+            $("#agenda").hide();
+            $("canvas").hide();
+            $("#agendaEspecifica").show();
 
-         } else {
-             alertify.error(data.message);
-         }
-     });
- }
+        } else {
+            alertify.error(data.message);
+        }
+    });
+}
 
- function cerrarAgenda() {
-     $("#agenda").hide();
-     $("#agendaGral").show();
+function cerrarAgenda() {
+    $("#agenda").hide();
+    $("#agendaGral").show();
 
-     $("#nameGral").show();
-     $("canvas").show();
-     $("#pregunta").html();
-     $("#cajacomments").hide();
- }
+    $("#nameGral").show();
+    $("canvas").show();
+    $("#pregunta").html();
+    $("#cajacomments").hide();
+}
 
- function cerrarAgendaEspecifica() {
-     $("#agenda").hide();
-     $("#agendaEspecifica").css('display', 'none');
-     $("#nameGral").show();
-     $("#pregunta").html();
-     $("#cajacomments").hide();
-     $("canvas").show();
- }
-
-
- function login() {
-     let email = $('#emailLogin').val();
-     let password = $('#passwordLogin').val();
-     if (!email || !password) {
-         alertify.error('Ingrese los datos necesarios.')
-         return;
-     }
-
-     let request = {
-         email: email,
-         password: password
-     }
-
-     $.post(url + "user/login", request, function(data) {
-         if (data.statusCode == 200) {
-             if (data.data.gender != "-1") {
-                 alertify.success('Bienvenido ' + data.data.name);
-                 sessionStorage.setItem('token', data.data.token);
-                 sessionStorage.setItem('name', data.data.name);
-                 sessionStorage.setItem('gender', data.data.gender);
-                 $('#pasoLogin').hide();
-
-                 guardarEstadistica({type:'Login'});
-             } else {
-                 alertify.error('Debe completar su registro.');
-
-             }
+function cerrarAgendaEspecifica() {
+    $("#agenda").hide();
+    $("#agendaEspecifica").css('display', 'none');
+    $("#nameGral").show();
+    $("#pregunta").html();
+    $("#cajacomments").hide();
+    $("canvas").show();
+}
 
 
-         } else {
-             alertify.error(data.message);
-         }
-     });
- }
+function login() {
+    let email = $('#emailLogin').val();
+    let password = $('#passwordLogin').val();
+    if (!email || !password) {
+        alertify.error('Ingrese los datos necesarios.')
+        return;
+    }
 
- var timeUrl = false;
+    let request = {
+        email: email,
+        password: password
+    }
 
- function guardarEstadisticaLink(typeSchedule,type,scheduleId) {
+    $.post(url + "user/login", request, function(data) {
+        if (data.statusCode == 200) {
+            if (data.data.gender != "-1") {
+                alertify.success('Bienvenido ' + data.data.name);
+                sessionStorage.setItem('token', data.data.token);
+                sessionStorage.setItem('name', data.data.name);
+                sessionStorage.setItem('gender', data.data.gender);
+                $('#pasoLogin').hide();
 
-    if(timeUrl == false){
-        guardarEstadistica({typeSchedule: typeSchedule ,type: type ,scheduleId: scheduleId});
+                guardarEstadistica({ type: 'Login' });
+            } else {
+                alertify.error('Debe completar su registro.');
+
+            }
+
+
+        } else {
+            alertify.error(data.message);
+        }
+    });
+}
+
+var timeUrl = false;
+
+function guardarEstadisticaLink(typeSchedule, type, scheduleId) {
+
+    if (timeUrl == false) {
+        guardarEstadistica({ typeSchedule: typeSchedule, type: type, scheduleId: scheduleId });
         timeUrl = true;
     }
 
- }
- function guardarEstadistica(obj) {
+}
+
+function guardarEstadistica(obj) {
     //  console.log(obj)
     // obj  {
-        // type:string;
-        // typeSchedule?: eTypesSchedule
+    // type:string;
+    // typeSchedule?: eTypesSchedule
     //  }
     $.ajax({
         url: url + "statistics/create2",
@@ -495,219 +496,219 @@
 
         }
     });
- }
+}
 
- function buscarUser(type) {
-     let email = $('#email').val();
-     $.get(url + "user/" + email, function(data) {
-         if (data.statusCode == 200) {
-             let user = data.user;
-             if (user.err) {
-                 if (type == 'none') {
-                     alertify.error(user.err)
-                 }
+function buscarUser(type) {
+    let email = $('#email').val();
+    $.get(url + "user/" + email, function(data) {
+        if (data.statusCode == 200) {
+            let user = data.user;
+            if (user.err) {
+                if (type == 'none') {
+                    alertify.error(user.err)
+                }
 
-                 $('#password').val("");
-                 $('#gender').val("-1");
-             } else {
-                 $('#password').val(user.password);
-                 $('#gender').val(user.gender);
-             }
-         } else {
-             alertify.error(data.message);
-         }
-     });
- }
+                $('#password').val("");
+                $('#gender').val("-1");
+            } else {
+                $('#password').val(user.password);
+                $('#gender').val(user.gender);
+            }
+        } else {
+            alertify.error(data.message);
+        }
+    });
+}
 
- function registroSend() {
-     let email = $('#email').val();
-     let gender = $('#gender').val();
-     if (gender == "-1") {
-         alertify.error('Debe seleccionar su género');
-         return;
-     }
-     if (email == "") {
-         alertify.error('Debe buscar su usuario');
-         return;
-     }
-     let request = {
-         gender: gender,
-     }
-
-
-     $.ajax({
-         url: url + "user/" + email,
-         type: 'PUT',
-         data: request,
-         success: function(data) {
-             if (data.statusCode == 200) {
-                 if (data.user.err) {
-                     alertify.error(data.user.err);
-                 } else {
-                     alertify.success("Se han actualizado sus datos correctamente.");
-                 }
-             } else {
-                 alertify.error(data.message);
-             }
-         }
-     });
+function registroSend() {
+    let email = $('#email').val();
+    let gender = $('#gender').val();
+    if (gender == "-1") {
+        alertify.error('Debe seleccionar su género');
+        return;
+    }
+    if (email == "") {
+        alertify.error('Debe buscar su usuario');
+        return;
+    }
+    let request = {
+        gender: gender,
+    }
 
 
-
- }
-
- function enviarPregunta(type, caja, cluster) {
-
-     let pregunta = $("#pregunta");
-     let cajaHide = $("#cajacomments");
-
-     if (pregunta.val() == undefined && pregunta.val() == "") {
-         alertify.error('No puede enviar una pregunta vacía.');
-         return;
-     }
-
-     $.ajax({
-         url: url + "questions/create",
-         type: 'post',
-         data: {
-             question: pregunta.val(),
-             cluster: cluster,
-             token: sessionStorage.getItem('token')
-         },
-         dataType: 'json',
-         success: function(data) {
-             alertify.success('Se ha enviado correctamente su pregunta, espere a que el equipo de soporte se comunique usted.');
-             pregunta.val('');
-             cajaHide.hide();
-         },
-         error: function(err) {
-             console.log('err :>> ', err);
-             alertify.error(err.message);
-
-         }
-     });
-
- }
-
- function generatePasswordRand(length, type) {
-     switch (type) {
-         case 'num':
-             characters = "0123456789";
-             break;
-         case 'alf':
-             characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-             break;
-         case 'rand':
-             //FOR ↓
-             break;
-         default:
-             characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-             break;
-     }
-     var pass = "";
-     for (i = 0; i < length; i++) {
-         if (type == 'rand') {
-             pass += String.fromCharCode((Math.floor((Math.random() * 100)) % 94) + 33);
-         } else {
-             pass += characters.charAt(Math.floor(Math.random() * characters.length));
-         }
-     }
-     return pass;
- }
-
- function getHora(hora) {
-     if (hora == 1) {
-         return "1 am ";
-     }
-     if (hora == 2) {
-         return "2 am ";
-     }
-     if (hora == 3) {
-         return "3 am ";
-     }
-     if (hora == 4) {
-         return "4 am ";
-     }
-     if (hora == 5) {
-         return "5 am ";
-     }
-     if (hora == 6) {
-         return "6 am ";
-     }
-     if (hora == 7) {
-         return "7 am ";
-     }
-     if (hora == 8) {
-         return "8 am ";
-     }
-     if (hora == 9) {
-         return "9 am ";
-     }
-     if (hora == 10) {
-         return "10 am ";
-     }
-     if (hora == 11) {
-         return "11 am ";
-     }
-     if (hora == 12) {
-         return "12 pm ";
-     }
-     if (hora == 13) {
-         return "1 pm ";
-     }
-     if (hora == 14) {
-         return "2 pm ";
-     }
-     if (hora == 15) {
-         return "3 pm ";
-     }
-     if (hora == 16) {
-         return "4 pm ";
-     }
-     if (hora == 17) {
-         return "5 pm ";
-     }
-     if (hora == 18) {
-         return "6 pm ";
-     }
-     if (hora == 19) {
-         return "1 pm ";
-     }
-     if (hora == 20) {
-         return "8 pm ";
-     }
-     if (hora == 21) {
-         return "9 pm ";
-     }
-     if (hora == 22) {
-         return "10 pm ";
-     }
-     if (hora == 23) {
-         return "11 pm ";
-     }
-     if (hora == 24) {
-         return "12 pm ";
-     }
- }
+    $.ajax({
+        url: url + "user/" + email,
+        type: 'PUT',
+        data: request,
+        success: function(data) {
+            if (data.statusCode == 200) {
+                if (data.user.err) {
+                    alertify.error(data.user.err);
+                } else {
+                    alertify.success("Se han actualizado sus datos correctamente.");
+                }
+            } else {
+                alertify.error(data.message);
+            }
+        }
+    });
 
 
- function getDayTexto(dia) {
-     if (dia == 1) {
-         return 'LUNES';
-     }
-     if (dia == 2) {
-         return 'MARTES';
-     }
-     if (dia == 3) {
-         return 'MIERCOLES';
-     }
-     if (dia == 4) {
-         return 'JUEVES';
-     }
-     if (dia == 5) {
-         return 'VIERNES';
-     }
-     if (dia == 6) {
-         return 'SÁBADO';
-     }
- }
+
+}
+
+function enviarPregunta(type, caja, cluster) {
+
+    let pregunta = $("#pregunta");
+    let cajaHide = $("#cajacomments");
+
+    if (pregunta.val() == undefined && pregunta.val() == "") {
+        alertify.error('No puede enviar una pregunta vacía.');
+        return;
+    }
+
+    $.ajax({
+        url: url + "questions/create",
+        type: 'post',
+        data: {
+            question: pregunta.val(),
+            cluster: cluster,
+            token: sessionStorage.getItem('token')
+        },
+        dataType: 'json',
+        success: function(data) {
+            alertify.success('Se ha enviado correctamente su pregunta, espere a que el equipo de soporte se comunique usted.');
+            pregunta.val('');
+            cajaHide.hide();
+        },
+        error: function(err) {
+            console.log('err :>> ', err);
+            alertify.error(err.message);
+
+        }
+    });
+
+}
+
+function generatePasswordRand(length, type) {
+    switch (type) {
+        case 'num':
+            characters = "0123456789";
+            break;
+        case 'alf':
+            characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            break;
+        case 'rand':
+            //FOR ↓
+            break;
+        default:
+            characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            break;
+    }
+    var pass = "";
+    for (i = 0; i < length; i++) {
+        if (type == 'rand') {
+            pass += String.fromCharCode((Math.floor((Math.random() * 100)) % 94) + 33);
+        } else {
+            pass += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+    }
+    return pass;
+}
+
+function getHora(hora) {
+    if (hora == 1) {
+        return "1 am ";
+    }
+    if (hora == 2) {
+        return "2 am ";
+    }
+    if (hora == 3) {
+        return "3 am ";
+    }
+    if (hora == 4) {
+        return "4 am ";
+    }
+    if (hora == 5) {
+        return "5 am ";
+    }
+    if (hora == 6) {
+        return "6 am ";
+    }
+    if (hora == 7) {
+        return "7 am ";
+    }
+    if (hora == 8) {
+        return "8 am ";
+    }
+    if (hora == 9) {
+        return "9 am ";
+    }
+    if (hora == 10) {
+        return "10 am ";
+    }
+    if (hora == 11) {
+        return "11 am ";
+    }
+    if (hora == 12) {
+        return "12 pm ";
+    }
+    if (hora == 13) {
+        return "1 pm ";
+    }
+    if (hora == 14) {
+        return "2 pm ";
+    }
+    if (hora == 15) {
+        return "3 pm ";
+    }
+    if (hora == 16) {
+        return "4 pm ";
+    }
+    if (hora == 17) {
+        return "5 pm ";
+    }
+    if (hora == 18) {
+        return "6 pm ";
+    }
+    if (hora == 19) {
+        return "7 pm ";
+    }
+    if (hora == 20) {
+        return "8 pm ";
+    }
+    if (hora == 21) {
+        return "9 pm ";
+    }
+    if (hora == 22) {
+        return "10 pm ";
+    }
+    if (hora == 23) {
+        return "11 pm ";
+    }
+    if (hora == 24) {
+        return "12 pm ";
+    }
+}
+
+
+function getDayTexto(dia) {
+    if (dia == 1) {
+        return 'LUNES';
+    }
+    if (dia == 2) {
+        return 'MARTES';
+    }
+    if (dia == 3) {
+        return 'MIERCOLES';
+    }
+    if (dia == 4) {
+        return 'JUEVES';
+    }
+    if (dia == 5) {
+        return 'VIERNES';
+    }
+    if (dia == 6) {
+        return 'SÁBADO';
+    }
+}
