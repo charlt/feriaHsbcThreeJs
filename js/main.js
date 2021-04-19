@@ -5,6 +5,7 @@ import * as THREE from '../build/threeBuild.js';
 
 import { FBXLoader } from '../build/fbxLoader.js';
 import { OrbitControls } from '../build/orbitControls.js';
+// import { Service } from './service';
 var _keys = {
     forward: false,
     backward: false,
@@ -105,6 +106,16 @@ $("#brincar").on("touchend", function() {
 
 
 
+
+class Services{
+    constructor(){
+    }
+
+    
+};
+
+
+
 class BasicCharacterControllerProxy {
     constructor(animations, camera) {
         this._animations = animations;
@@ -135,7 +146,9 @@ class BasicCharacterControllerProxyLeon {
     }
 };
 class BasicCharacterController {
-    constructor(params) {
+    constructor(
+        params
+        ) {
         this._Init(params);
     }
     _Init(params) {
@@ -993,6 +1006,31 @@ function _onKeyDown(event) {
             let position = character.position;
 
             if ((position.x >= balance.xn && position.x <= balance.xm) && (position.z >= balance.zn && position.z <= balance.zm)) {
+                // let serv = new Services;
+                // serv.guardarEstadistica({typeSchedule: 'Balance',type: 'entrarSchundle',});
+
+                    $.ajax({
+                        url: url + "statistics/create2",
+                        type: 'post',
+                        data: {
+                            typeSchedule: 'Balance',type: 'entrarSchundle',
+                            token: sessionStorage.getItem('token')
+                        },
+                        dataType: 'json',
+                        success: function(data) {
+                            // alertify.success('Se ha enviado correctamente su pregunta, espere a que el equipo de soporte se comunique usted.');
+                            // pregunta.val('');
+                            // cajaHide.hide();
+                            console.log(data);
+                        },
+                        error: function(err) {
+                            console.log('err :>> ', err);
+                            alertify.error(err.message);
+                
+                        }
+                    });
+                
+
                 $('#agenda').show();
                 $("#nameGral").hide();
 
@@ -1021,6 +1059,28 @@ function _onKeyDown(event) {
             }
 
             if ((position.x >= salud.xn && position.x <= salud.xm) && (position.z >= salud.zn && position.z <= salud.zm)) {
+                // let serv = new Services;
+                // serv.guardarEstadistica({typeSchedule: 'SaludBienestar',type: 'entrarSchundle',});
+                $.ajax({
+                    url: url + "statistics/create2",
+                    type: 'post',
+                    data: {
+                        typeSchedule: 'SaludBienestar',type: 'entrarSchundle',
+                        token: sessionStorage.getItem('token')
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        // alertify.success('Se ha enviado correctamente su pregunta, espere a que el equipo de soporte se comunique usted.');
+                        // pregunta.val('');
+                        // cajaHide.hide();
+                        console.log(data);
+                    },
+                    error: function(err) {
+                        console.log('err :>> ', err);
+                        alertify.error(err.message);
+            
+                    }
+                });
                 $("#nameGral").hide();
                 $('#agenda').show();
                 $("#classCluster").removeClass();
@@ -1048,6 +1108,28 @@ function _onKeyDown(event) {
                 $("#divP").html(`<input type="button" class="btngocomm" onclick="enviarPregunta('pregunta','cajacomments','SaludBienestar')" value="Enviar">`);
             }
             if ((position.x >= valores.xn && position.x <= valores.xm) && (position.z >= valores.zn && position.z <= valores.zm)) {
+                // let serv = new Services;
+                // serv.guardarEstadistica({typeSchedule: 'Cultura',type: 'entrarSchundle',});
+                $.ajax({
+                    url: url + "statistics/create2",
+                    type: 'post',
+                    data: {
+                        typeSchedule: 'Cultura',type: 'entrarSchundle',
+                        token: sessionStorage.getItem('token')
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        // alertify.success('Se ha enviado correctamente su pregunta, espere a que el equipo de soporte se comunique usted.');
+                        // pregunta.val('');
+                        // cajaHide.hide();
+                        console.log(data);
+                    },
+                    error: function(err) {
+                        console.log('err :>> ', err);
+                        alertify.error(err.message);
+            
+                    }
+                });
                 $('#agenda').show();
                 $("#nameGral").hide();
                 $("#classCluster").removeClass();
@@ -1076,6 +1158,28 @@ function _onKeyDown(event) {
                 $("#divP").html(`<input type="button" class="btngocomm" onclick="enviarPregunta('pregunta','cajacomments','Cultura')" value="Enviar">`);
             }
             if ((position.x >= finanzas.xn && position.x <= finanzas.xm) && (position.z >= finanzas.zn && position.z <= finanzas.zm)) {
+                // let serv = new Services;
+                // serv.guardarEstadistica({typeSchedule: 'Finanzas',type: 'entrarSchundle'});
+                $.ajax({
+                    url: url + "statistics/create2",
+                    type: 'post',
+                    data: {
+                        typeSchedule: 'Finanzas',type: 'entrarSchundle',
+                        token: sessionStorage.getItem('token')
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        // alertify.success('Se ha enviado correctamente su pregunta, espere a que el equipo de soporte se comunique usted.');
+                        // pregunta.val('');
+                        // cajaHide.hide();
+                        console.log(data);
+                    },
+                    error: function(err) {
+                        console.log('err :>> ', err);
+                        alertify.error(err.message);
+            
+                    }
+                });
                 $('#agenda').show();
                 $("#nameGral").hide();
                 $("#classCluster").removeClass();
@@ -1106,6 +1210,28 @@ function _onKeyDown(event) {
 
             }
             if ((position.x >= desarrollo.xn && position.x <= desarrollo.xm) && (position.z >= desarrollo.zn && position.z <= desarrollo.zm)) {
+                // let serv = new Services;
+                // serv.guardarEstadistica({typeSchedule: 'DesarrolloCarrera',type: 'entrarSchundle',});
+                $.ajax({
+                    url: url + "statistics/create2",
+                    type: 'post',
+                    data: {
+                        typeSchedule: 'DesarrolloCarrera',type: 'entrarSchundle',
+                        token: sessionStorage.getItem('token')
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        // alertify.success('Se ha enviado correctamente su pregunta, espere a que el equipo de soporte se comunique usted.');
+                        // pregunta.val('');
+                        // cajaHide.hide();
+                        console.log(data);
+                    },
+                    error: function(err) {
+                        console.log('err :>> ', err);
+                        alertify.error(err.message);
+            
+                    }
+                });
                 $('#agenda').show();
                 $("#nameGral").hide();
                 $("#classCluster").removeClass();
@@ -2853,6 +2979,8 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+
 export function touchEvent(coordinates) {
     if (coordinates.x > 30) {
         _keys.left = false;
@@ -2889,6 +3017,36 @@ export function touchEvent(coordinates) {
         moveDirection.back = 0;
     }
 }
+
+
+// export fuction guardarEstadist(obj:any) {
+//     console.log(obj)
+//    // obj  {
+//        // type:string;
+//        // typeSchedule?: eTypesSchedule
+//    //  }
+//    $.ajax({
+//        url: url + "statistics/create2",
+//        type: 'post',
+//        data: {
+//            ...obj,
+//            token: sessionStorage.getItem('token')
+//        },
+//        dataType: 'json',
+//        success: function(data) {
+//            // alertify.success('Se ha enviado correctamente su pregunta, espere a que el equipo de soporte se comunique usted.');
+//            // pregunta.val('');
+//            // cajaHide.hide();
+//            console.log(data);
+//        },
+//        error: function(err) {
+//            console.log('err :>> ', err);
+//            alertify.error(err.message);
+
+//        }
+//    });
+// };
+
 export function createJoystick(parent) {
     const maxDiff = 62; //how far drag can go
     const stick = document.createElement("div");
