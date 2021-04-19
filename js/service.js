@@ -57,7 +57,7 @@
                                    <h3 class="color-desarrollo2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
        
                                    <div class="btn1">
-                                       <a href="https://vimeo.com/535667880" target="_blank">Aquí</a>
+                                       <a href="${agendad.video}" target="_blank">Aquí</a>
                                        <div class="bola"></div>
                                    </div>
        
@@ -74,7 +74,7 @@
                                    <h3 class="color-finanzas2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
        
                                    <div class="btn1">
-                                       <a href="https://vimeo.com/535667880" target="_blank">Aquí</a>
+                                       <a href="${agendad.video}" target="_blank">Aquí</a>
                                        <div class="bola"></div>
                                    </div>
        
@@ -91,7 +91,7 @@
                                    <h3 class="color-cultura2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
        
                                    <div class="btn1">
-                                       <a href="https://vimeo.com/535667880" target="_blank">Aquí</a>
+                                       <a href="${agendad.video}" target="_blank">Aquí</a>
                                        <div class="bola"></div>
                                    </div>
        
@@ -108,7 +108,7 @@
                                    <h3 class="color-salud2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
        
                                    <div class="btn1">
-                                       <a href="https://vimeo.com/535667880" target="_blank">Aquí</a>
+                                       <a href="${agendad.video}" target="_blank">Aquí</a>
                                        <div class="bola"></div>
                                    </div>
        
@@ -125,7 +125,7 @@
                                    <h3 class="color-balance2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
        
                                    <div class="btn1">
-                                       <a href="https://vimeo.com/535667880" target="_blank">Aquí</a>
+                                       <a href="${agendad.video}" target="_blank">Aquí</a>
                                        <div class="bola"></div>
                                    </div>
        
