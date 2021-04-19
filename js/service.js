@@ -31,7 +31,7 @@
          if (data.statusCode == 200) {
              let schedule = data.schedule;
              let arraySchedule = [];
-             let fechaActual = new Date('2021-04-24T05:00:00.000Z');
+             let fechaActual = new Date();
              let diaActual = fechaActual.getDate();
              let mesActual = fechaActual.getMonth();
              guardarEstadistica({typeSchedule: type,type: 'entrarAgendaAnterior',});
@@ -59,7 +59,7 @@
                                    <h3 class="color-desarrollo2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
        
                                    <div class="btn1">
-                                       <a onclick="guardarEstadisticaLink('${type}','entrarVideo','${agendad._id}')" href="https://vimeo.com/535667880" target="_blank">Aquí</a>
+                                       <a onclick="guardarEstadisticaLink('${type}','entrarVideo','${agendad._id}')" href="${agendad.video}" target="_blank">Aquí</a>
                                        <div class="bola"></div>
                                    </div>
        
@@ -76,7 +76,7 @@
                                    <h3 class="color-finanzas2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
        
                                    <div class="btn1">
-                                       <a onclick="guardarEstadisticaLink('${type}','entrarVideo','${agendad._id}')" href="https://vimeo.com/535667880" target="_blank">Aquí</a>
+                                       <a onclick="guardarEstadisticaLink('${type}','entrarVideo','${agendad._id}')" href="${agendad.video}" target="_blank">Aquí</a>
                                        <div class="bola"></div>
                                    </div>
        
@@ -93,7 +93,7 @@
                                    <h3 class="color-cultura2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
        
                                    <div class="btn1">
-                                       <a onclick="guardarEstadisticaLink('${type}','entrarVideo','${agendad._id}')" href="https://vimeo.com/535667880" target="_blank">Aquí</a>
+                                       <a onclick="guardarEstadisticaLink('${type}','entrarVideo','${agendad._id}')" href="${agendad.video}" target="_blank">Aquí</a>
                                        <div class="bola"></div>
                                    </div>
        
@@ -110,7 +110,7 @@
                                    <h3 class="color-salud2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
        
                                    <div class="btn1">
-                                       <a onclick="guardarEstadisticaLink('${type}','entrarVideo','${agendad._id}')" href="https://vimeo.com/535667880" target="_blank">Aquí</a>
+                                       <a onclick="guardarEstadisticaLink('${type}','entrarVideo','${agendad._id}')" href="${agendad.video}" target="_blank">Aquí</a>
                                        <div class="bola"></div>
                                    </div>
        
@@ -127,7 +127,7 @@
                                    <h3 class="color-balance2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
        
                                    <div class="btn1">
-                                       <a onclick="guardarEstadisticaLink('${type}','entrarVideo','${agendad._id}')" href="https://vimeo.com/535667880" target="_blank">Aquí</a>
+                                       <a onclick="guardarEstadisticaLink('${type}','entrarVideo','${agendad._id}')" href="${agendad.video}" target="_blank">Aquí</a>
                                        <div class="bola"></div>
                                    </div>
        
@@ -207,7 +207,7 @@
          //let fechaActual = new Date();
          //QUITAR
          let tituloDia = "";
-         let fechaActual = new Date('2021-04-24T05:00:00.000Z');
+         let fechaActual = new Date();
          let diaActual = fechaActual.getDate();
          let mesActual = fechaActual.getMonth();
          if (data.statusCode == 200) {
@@ -467,7 +467,7 @@
 
  }
  function guardarEstadistica(obj) {
-     console.log(obj)
+    //  console.log(obj)
     // obj  {
         // type:string;
         // typeSchedule?: eTypesSchedule

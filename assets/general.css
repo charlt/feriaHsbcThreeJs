@@ -425,6 +425,8 @@ a:visited {
 }
 
 .cajainfo {
+    height: 240px;
+    font-size: 1.2em;
     margin-bottom: 50px;
     padding: 10px 20px;
     color: #fff;
@@ -441,14 +443,14 @@ a:visited {
 }
 
 .cajainfo p {
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 .logow {
     width: 300px;
 }
 
-.bola {
+px .bola {
     position: absolute;
     width: 34px;
     height: 34px;
