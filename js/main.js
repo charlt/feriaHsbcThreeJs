@@ -1009,7 +1009,8 @@ function _onKeyDown(event) {
                 // let serv = new Services;
                 // serv.guardarEstadistica({typeSchedule: 'Balance',type: 'entrarSchundle',});
 
-                    $.ajax({
+                console.log('hola');    
+                $.ajax({
                         url: url + "statistics/create2",
                         type: 'post',
                         data: {
@@ -1061,6 +1062,7 @@ function _onKeyDown(event) {
             if ((position.x >= salud.xn && position.x <= salud.xm) && (position.z >= salud.zn && position.z <= salud.zm)) {
                 // let serv = new Services;
                 // serv.guardarEstadistica({typeSchedule: 'SaludBienestar',type: 'entrarSchundle',});
+                console.log('hola');
                 $.ajax({
                     url: url + "statistics/create2",
                     type: 'post',
@@ -1110,6 +1112,7 @@ function _onKeyDown(event) {
             if ((position.x >= valores.xn && position.x <= valores.xm) && (position.z >= valores.zn && position.z <= valores.zm)) {
                 // let serv = new Services;
                 // serv.guardarEstadistica({typeSchedule: 'Cultura',type: 'entrarSchundle',});
+                console.log('hola');
                 $.ajax({
                     url: url + "statistics/create2",
                     type: 'post',
@@ -1160,6 +1163,7 @@ function _onKeyDown(event) {
             if ((position.x >= finanzas.xn && position.x <= finanzas.xm) && (position.z >= finanzas.zn && position.z <= finanzas.zm)) {
                 // let serv = new Services;
                 // serv.guardarEstadistica({typeSchedule: 'Finanzas',type: 'entrarSchundle'});
+                console.log('hola');
                 $.ajax({
                     url: url + "statistics/create2",
                     type: 'post',
@@ -1212,6 +1216,8 @@ function _onKeyDown(event) {
             if ((position.x >= desarrollo.xn && position.x <= desarrollo.xm) && (position.z >= desarrollo.zn && position.z <= desarrollo.zm)) {
                 // let serv = new Services;
                 // serv.guardarEstadistica({typeSchedule: 'DesarrolloCarrera',type: 'entrarSchundle',});
+                console.log('hola');
+                console.log('hola');
                 $.ajax({
                     url: url + "statistics/create2",
                     type: 'post',
@@ -3025,7 +3031,8 @@ export function touchEvent(coordinates) {
 //        // type:string;
 //        // typeSchedule?: eTypesSchedule
 //    //  }
-//    $.ajax({
+//    
+//$.ajax({
 //        url: url + "statistics/create2",
 //        type: 'post',
 //        data: {
