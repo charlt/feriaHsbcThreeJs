@@ -35,13 +35,13 @@ function agendaAnterior(type) {
             let diaActual = fechaActual.getDate();
             let mesActual = fechaActual.getMonth();
             guardarEstadistica({ typeSchedule: type, type: 'entrarAgendaAnterior', });
-            console.log(schedule);
             for (const iterator of schedule) {
                 let fechaAgenda = new Date(iterator.fecha[0]);
                 let mesAgenda = fechaAgenda.getMonth();
                 let diaAgenda = fechaAgenda.getDate();
                 let diaAgendaWeek = fechaAgenda.getDay();
-                if (fechaAgenda < fechaActual) {
+
+                if (diaAgenda < diaActual) {
                     tituloDia = `<h1>${getDayTexto(diaAgendaWeek)+' '+diaAgenda}</h1><br>`
                     for (const agendad of iterator.res) {
                         if (agendad.status == "true") {
@@ -318,15 +318,14 @@ function agenda(type) {
                     }
                 }
             }
-            fechas.sort();
+
             if (pintar == "") {
-
-
                 if (fechas[0] > fechaActual) {
                     let d = fechas[0].getDate();
                     let w = fechas[0].getDay();
                     pintar = `El día de hoy no hay agenda abierta, hasta 
-                     ${getDayTexto(w)+' '+d}<br>`
+                     ${getDayTexto(w)+' '+d}<br>`;
+
                 } else if (pintar == "" && fechas[1] > fechaActual) {
                     let d = fechas[1].getDate();
                     let w = fechas[1].getDay();

@@ -107,11 +107,10 @@ $("#brincar").on("touchend", function() {
 
 
 
-class Services{
-    constructor(){
-    }
+class Services {
+    constructor() {}
 
-    
+
 };
 
 
@@ -148,7 +147,7 @@ class BasicCharacterControllerProxyLeon {
 class BasicCharacterController {
     constructor(
         params
-        ) {
+    ) {
         this._Init(params);
     }
     _Init(params) {
@@ -1009,28 +1008,29 @@ function _onKeyDown(event) {
                 // let serv = new Services;
                 // serv.guardarEstadistica({typeSchedule: 'Balance',type: 'entrarSchundle',});
 
-                console.log('hola');    
+
                 $.ajax({
-                        url: url + "statistics/create2",
-                        type: 'post',
-                        data: {
-                            typeSchedule: 'Balance',type: 'entrarSchundle',
-                            token: sessionStorage.getItem('token')
-                        },
-                        dataType: 'json',
-                        success: function(data) {
-                            // alertify.success('Se ha enviado correctamente su pregunta, espere a que el equipo de soporte se comunique usted.');
-                            // pregunta.val('');
-                            // cajaHide.hide();
-                            console.log(data);
-                        },
-                        error: function(err) {
-                            console.log('err :>> ', err);
-                            alertify.error(err.message);
-                
-                        }
-                    });
-                
+                    url: url + "statistics/create2",
+                    type: 'post',
+                    data: {
+                        typeSchedule: 'Balance',
+                        type: 'entrarSchundle',
+                        token: sessionStorage.getItem('token')
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        // alertify.success('Se ha enviado correctamente su pregunta, espere a que el equipo de soporte se comunique usted.');
+                        // pregunta.val('');
+                        // cajaHide.hide();
+                        console.log(data);
+                    },
+                    error: function(err) {
+                        console.log('err :>> ', err);
+                        alertify.error(err.message);
+
+                    }
+                });
+
 
                 $('#agenda').show();
                 $("#nameGral").hide();
@@ -1067,7 +1067,8 @@ function _onKeyDown(event) {
                     url: url + "statistics/create2",
                     type: 'post',
                     data: {
-                        typeSchedule: 'SaludBienestar',type: 'entrarSchundle',
+                        typeSchedule: 'SaludBienestar',
+                        type: 'entrarSchundle',
                         token: sessionStorage.getItem('token')
                     },
                     dataType: 'json',
@@ -1080,7 +1081,7 @@ function _onKeyDown(event) {
                     error: function(err) {
                         console.log('err :>> ', err);
                         alertify.error(err.message);
-            
+
                     }
                 });
                 $("#nameGral").hide();
@@ -1117,7 +1118,8 @@ function _onKeyDown(event) {
                     url: url + "statistics/create2",
                     type: 'post',
                     data: {
-                        typeSchedule: 'Cultura',type: 'entrarSchundle',
+                        typeSchedule: 'Cultura',
+                        type: 'entrarSchundle',
                         token: sessionStorage.getItem('token')
                     },
                     dataType: 'json',
@@ -1130,7 +1132,7 @@ function _onKeyDown(event) {
                     error: function(err) {
                         console.log('err :>> ', err);
                         alertify.error(err.message);
-            
+
                     }
                 });
                 $('#agenda').show();
@@ -1168,7 +1170,8 @@ function _onKeyDown(event) {
                     url: url + "statistics/create2",
                     type: 'post',
                     data: {
-                        typeSchedule: 'Finanzas',type: 'entrarSchundle',
+                        typeSchedule: 'Finanzas',
+                        type: 'entrarSchundle',
                         token: sessionStorage.getItem('token')
                     },
                     dataType: 'json',
@@ -1181,7 +1184,7 @@ function _onKeyDown(event) {
                     error: function(err) {
                         console.log('err :>> ', err);
                         alertify.error(err.message);
-            
+
                     }
                 });
                 $('#agenda').show();
@@ -1222,7 +1225,8 @@ function _onKeyDown(event) {
                     url: url + "statistics/create2",
                     type: 'post',
                     data: {
-                        typeSchedule: 'DesarrolloCarrera',type: 'entrarSchundle',
+                        typeSchedule: 'DesarrolloCarrera',
+                        type: 'entrarSchundle',
                         token: sessionStorage.getItem('token')
                     },
                     dataType: 'json',
@@ -1235,7 +1239,7 @@ function _onKeyDown(event) {
                     error: function(err) {
                         console.log('err :>> ', err);
                         alertify.error(err.message);
-            
+
                     }
                 });
                 $('#agenda').show();
@@ -1692,7 +1696,6 @@ class WalkState extends State {
         return 'walk';
     }
     Enter(prevState) {
-        console.log('this._parent :>> ', this._parent);
         const curAction = this._parent._proxy._animations['walk'].action;
         if (prevState) {
             const prevAction = this._parent._proxy._animations[prevState.Name].action;
