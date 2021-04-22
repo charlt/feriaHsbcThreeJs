@@ -288,7 +288,7 @@ function agenda(type) {
                                         <img src="img/coso1.svg" width="30">
                                     </div>
                                     <p>${agendad.name}</p>
-                                    <h3 class="color-salud2">$${getHora(fechaInicio.getUTCHours(),fechaInicio.getMinutes())+'- '+getHora(fechaFinal.getUTCHours(),fechaFinal.getMinutes())}</h3>
+                                    <h3 class="color-salud2">${getHora(fechaInicio.getUTCHours(),fechaInicio.getMinutes())+'- '+getHora(fechaFinal.getUTCHours(),fechaFinal.getMinutes())}</h3>
         
                                     <div class="btn1">
                                         <a onclick="guardarEstadisticaLink('${type}','entrarEvento','${agendad._id}')" href="${agendad.url}" target="_blank">Aquí</a>
