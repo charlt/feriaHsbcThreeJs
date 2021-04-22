@@ -36,7 +36,9 @@ function agendaAnterior(type) {
             let mesActual = fechaActual.getMonth();
             guardarEstadistica({ typeSchedule: type, type: 'entrarAgendaAnterior', });
             for (const iterator of schedule) {
+
                 let fechaAgenda = new Date(iterator.fecha[0]);
+                console.log('fechaAgenda :>> ', fechaAgenda);
                 let mesAgenda = fechaAgenda.getMonth();
                 let diaAgenda = fechaAgenda.getDate();
                 let diaAgendaWeek = fechaAgenda.getDay();
@@ -56,7 +58,7 @@ function agendaAnterior(type) {
                                        <img src="img/coso1.svg" width="30">
                                    </div>
                                    <p>${agendad.name}</p>
-                                   <h3 class="color-desarrollo2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
+                                   <h3 class="color-desarrollo2">$${getHora(fechaInicio.getUTCHours(),fechaInicio.getMinutes())+'- '+getHora(fechaFinal.getUTCHours(),fechaFinal.getMinutes())}</h3>
        
                                    <div class="btn1">
                                        <a onclick="guardarEstadisticaLink('${type}','entrarVideo','${agendad._id}')" href="${agendad.video}" target="_blank">Aquí</a>
@@ -73,7 +75,7 @@ function agendaAnterior(type) {
                                        <img src="img/coso1.svg" width="30">
                                    </div>
                                    <p>${agendad.name}</p>
-                                   <h3 class="color-finanzas2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
+                                   <h3 class="color-finanzas2">${getHora(fechaInicio.getUTCHours(),fechaInicio.getMinutes())+'- '+getHora(fechaFinal.getUTCHours(),fechaFinal.getMinutes())}</h3>
        
                                    <div class="btn1">
                                        <a onclick="guardarEstadisticaLink('${type}','entrarVideo','${agendad._id}')" href="${agendad.video}" target="_blank">Aquí</a>
@@ -90,7 +92,7 @@ function agendaAnterior(type) {
                                        <img src="img/coso1.svg" width="30">
                                    </div>
                                    <p>${agendad.name}</p>
-                                   <h3 class="color-cultura2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
+                                   <h3 class="color-cultura2">$${getHora(fechaInicio.getUTCHours(),fechaInicio.getMinutes())+'- '+getHora(fechaFinal.getUTCHours(),fechaFinal.getMinutes())}</h3>
        
                                    <div class="btn1">
                                        <a onclick="guardarEstadisticaLink('${type}','entrarVideo','${agendad._id}')" href="${agendad.video}" target="_blank">Aquí</a>
@@ -107,7 +109,7 @@ function agendaAnterior(type) {
                                        <img src="img/coso1.svg" width="30">
                                    </div>
                                    <p>${agendad.name}</p>
-                                   <h3 class="color-salud2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
+                                   <h3 class="color-salud2">$${getHora(fechaInicio.getUTCHours(),fechaInicio.getMinutes())+'- '+getHora(fechaFinal.getUTCHours(),fechaFinal.getMinutes())}</h3>
        
                                    <div class="btn1">
                                        <a onclick="guardarEstadisticaLink('${type}','entrarVideo','${agendad._id}')" href="${agendad.video}" target="_blank">Aquí</a>
@@ -124,7 +126,7 @@ function agendaAnterior(type) {
                                        <img src="img/coso1.svg" width="30">
                                    </div>
                                    <p>${agendad.name}</p>
-                                   <h3 class="color-balance2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
+                                   <h3 class="color-balance2">$${getHora(fechaInicio.getUTCHours(),fechaInicio.getMinutes())+'- '+getHora(fechaFinal.getUTCHours(),fechaFinal.getMinutes())}</h3>
        
                                    <div class="btn1">
                                        <a onclick="guardarEstadisticaLink('${type}','entrarVideo','${agendad._id}')" href="${agendad.video}" target="_blank">Aquí</a>
@@ -235,7 +237,7 @@ function agenda(type) {
                                         <img src="img/coso1.svg" width="30">
                                     </div>
                                     <p>${agendad.name}</p>
-                                    <h3 class="color-desarrollo2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
+                                    <h3 class="color-desarrollo2">$${getHora(fechaInicio.getUTCHours(),fechaInicio.getMinutes())+'- '+getHora(fechaFinal.getUTCHours(),fechaFinal.getMinutes())}</h3>
         
                                     <div class="btn1">
                                         <a onclick="guardarEstadisticaLink('${type}','entrarEvento','${agendad._id}')" href="${agendad.url}" target="_blank">Aquí</a>
@@ -252,7 +254,7 @@ function agenda(type) {
                                         <img src="img/coso1.svg" width="30">
                                     </div>
                                     <p>${agendad.name}</p>
-                                    <h3 class="color-finanzas2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
+                                    <h3 class="color-finanzas2">$${getHora(fechaInicio.getUTCHours(),fechaInicio.getMinutes())+'- '+getHora(fechaFinal.getUTCHours(),fechaFinal.getMinutes())}</h3>
         
                                     <div class="btn1">
                                         <a onclick="guardarEstadisticaLink('${type}','entrarEvento','${agendad._id}')" href="${agendad.url}" target="_blank">Aquí</a>
@@ -269,7 +271,7 @@ function agenda(type) {
                                         <img src="img/coso1.svg" width="30">
                                     </div>
                                     <p>${agendad.name}</p>
-                                    <h3 class="color-cultura2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
+                                    <h3 class="color-cultura2">$${getHora(fechaInicio.getUTCHours(),fechaInicio.getMinutes())+'- '+getHora(fechaFinal.getUTCHours(),fechaFinal.getMinutes())}</h3>
         
                                     <div class="btn1">
                                         <a onclick="guardarEstadisticaLink('${type}','entrarEvento','${agendad._id}')" href="${agendad.url}" target="_blank">Aquí</a>
@@ -286,7 +288,7 @@ function agenda(type) {
                                         <img src="img/coso1.svg" width="30">
                                     </div>
                                     <p>${agendad.name}</p>
-                                    <h3 class="color-salud2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
+                                    <h3 class="color-salud2">$${getHora(fechaInicio.getUTCHours(),fechaInicio.getMinutes())+'- '+getHora(fechaFinal.getUTCHours(),fechaFinal.getMinutes())}</h3>
         
                                     <div class="btn1">
                                         <a onclick="guardarEstadisticaLink('${type}','entrarEvento','${agendad._id}')" href="${agendad.url}" target="_blank">Aquí</a>
@@ -303,7 +305,7 @@ function agenda(type) {
                                         <img src="img/coso1.svg" width="30">
                                     </div>
                                     <p>${agendad.name}</p>
-                                    <h3 class="color-balance2">${getHora(fechaInicio.getUTCHours())+'- '+getHora(fechaFinal.getUTCHours())}</h3>
+                                    <h3 class="color-balance2">$${getHora(fechaInicio.getUTCHours(),fechaInicio.getMinutes())+'- '+getHora(fechaFinal.getUTCHours(),fechaFinal.getMinutes())}</h3>
         
                                     <div class="btn1">
                                         <a onclick="guardarEstadisticaLink('${type}','entrarEvento','${agendad._id}')" href="${agendad.url}" target="_blank">Aquí</a>
@@ -615,78 +617,84 @@ function generatePasswordRand(length, type) {
     return pass;
 }
 
-function getHora(hora) {
+function getHora(hora, minutes) {
+
+    for (let index = 0; index < 10; index++) {
+        if (minutes == index) {
+            minutes = '0' + minutes;
+        }
+    }
     if (hora == 1) {
-        return "1 am ";
+        return `1:${minutes} am `;
     }
     if (hora == 2) {
-        return "2 am ";
+        return `2:${minutes} am `;
     }
     if (hora == 3) {
-        return "3 am ";
+        return `3:${minutes} am `;
     }
     if (hora == 4) {
-        return "4 am ";
+        return `4:${minutes} am `;
     }
     if (hora == 5) {
-        return "5 am ";
+        return `5:${minutes} am `;;
     }
     if (hora == 6) {
-        return "6 am ";
+        return `6:${minutes} am `;
     }
     if (hora == 7) {
-        return "7 am ";
+        return `7:${minutes} am `;
     }
     if (hora == 8) {
-        return "8 am ";
+        return `8:${minutes} am `;
     }
     if (hora == 9) {
-        return "9 am ";
+        return `9:${minutes} am `;
     }
     if (hora == 10) {
-        return "10 am ";
+        return `10:${minutes} am `;
     }
     if (hora == 11) {
-        return "11 am ";
+        return `11:${minutes} am `;
     }
     if (hora == 12) {
-        return "12 pm ";
+        return `12:${minutes} am `;
     }
     if (hora == 13) {
-        return "1 pm ";
+        return `1:${minutes} pm `;
     }
     if (hora == 14) {
-        return "2 pm ";
+        return `2:${minutes} pm `;
     }
     if (hora == 15) {
-        return "3 pm ";
+        return `3:${minutes} pm `;
     }
     if (hora == 16) {
-        return "4 pm ";
+        return `4:${minutes} pm `;
     }
     if (hora == 17) {
-        return "5 pm ";
+        return `5:${minutes} pm `;
     }
     if (hora == 18) {
-        return "6 pm ";
+        return `6:${minutes} pm `;
     }
     if (hora == 19) {
-        return "7 pm ";
+        return `7:${minutes} pm `;
     }
     if (hora == 20) {
-        return "8 pm ";
+        return `8:${minutes} pm `;
     }
     if (hora == 21) {
-        return "9 pm ";
+        return `9:${minutes} pm `;
     }
     if (hora == 22) {
-        return "10 pm ";
+        return `10:${minutes} pm `;
     }
     if (hora == 23) {
-        return "11 pm ";
+        return `11:${minutes} pm `;
     }
     if (hora == 24) {
-        return "12 pm ";
+        return `12:${minutes} pm `;
     }
 }
 
