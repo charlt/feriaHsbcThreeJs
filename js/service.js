@@ -43,16 +43,16 @@ function agendaAnterior(type) {
                 let diaAgenda = fechaAgenda.getDate();
                 let diaAgendaWeek = fechaAgenda.getDay();
 
-                if (diaAgenda < diaActual) {
-                    tituloDia = `<h1>${getDayTexto(diaAgendaWeek)+' '+diaAgenda}</h1><br>`
-                    for (const agendad of iterator.res) {
-                        if (agendad.status == "true") {
-                            let fechaInicio = new Date(agendad.start);
-                            let fechaFinal = new Date(agendad.finish);
-                            //<a href="${agendad.video}" target="_blank">
 
-                            if (type == 'DesarrolloCarrera') {
-                                pintar += `<div class="col-sm-3 col-xs-12">
+                tituloDia = `<h1>${getDayTexto(diaAgendaWeek)+' '+diaAgenda}</h1><br>`
+                for (const agendad of iterator.res) {
+                    if (agendad.status == "true") {
+                        let fechaInicio = new Date(agendad.start);
+                        let fechaFinal = new Date(agendad.finish);
+                        //<a href="${agendad.video}" target="_blank">
+
+                        if (type == 'DesarrolloCarrera') {
+                            pintar += `<div class="col-sm-3 col-xs-12">
                                <div class="cajainfo bg-desarrollo">
                                    <div class="coso1">
                                        <img src="img/coso1.svg" width="30">
@@ -67,9 +67,9 @@ function agendaAnterior(type) {
        
                                </div>
                            </div>`
-                            }
-                            if (type == 'Finanzas') {
-                                pintar += `<div class="col-sm-3 col-xs-12">
+                        }
+                        if (type == 'Finanzas') {
+                            pintar += `<div class="col-sm-3 col-xs-12">
                                <div class="cajainfo bg-finanzas">
                                    <div class="coso1">
                                        <img src="img/coso1.svg" width="30">
@@ -84,9 +84,9 @@ function agendaAnterior(type) {
        
                                </div>
                            </div>`
-                            }
-                            if (type == 'Cultura') {
-                                pintar += `<div class="col-sm-3 col-xs-12">
+                        }
+                        if (type == 'Cultura') {
+                            pintar += `<div class="col-sm-3 col-xs-12">
                                <div class="cajainfo bg-cultura">
                                    <div class="coso1">
                                        <img src="img/coso1.svg" width="30">
@@ -101,9 +101,9 @@ function agendaAnterior(type) {
        
                                </div>
                            </div>`
-                            }
-                            if (type == 'SaludBienestar') {
-                                pintar += `<div class="col-sm-3 col-xs-12">
+                        }
+                        if (type == 'SaludBienestar') {
+                            pintar += `<div class="col-sm-3 col-xs-12">
                                <div class="cajainfo bg-salud">
                                    <div class="coso1">
                                        <img src="img/coso1.svg" width="30">
@@ -118,9 +118,9 @@ function agendaAnterior(type) {
        
                                </div>
                            </div>`
-                            }
-                            if (type == 'Balance') {
-                                pintar += `<div class="col-sm-3 col-xs-12">
+                        }
+                        if (type == 'Balance') {
+                            pintar += `<div class="col-sm-3 col-xs-12">
                                <div class="cajainfo bg-balance">
                                    <div class="coso1">
                                        <img src="img/coso1.svg" width="30">
@@ -135,15 +135,13 @@ function agendaAnterior(type) {
        
                                </div>
                            </div>`
-                            }
-
-
-
                         }
-                    }
-                } else {
 
+
+
+                    }
                 }
+
             }
 
             if (type == "DesarrolloCarrera") {
